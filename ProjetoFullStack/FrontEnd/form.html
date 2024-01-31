@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserir Música</title>
+    <link rel="stylesheet" href="./style2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets/img/logo.png" alt="logotipo" />
+        <span>Spotify da Shopee</span>
+      </div>
+    </header>
+
+    <main>
+      <a href="./index.html">Lista de Músicas</a>
+
+      <form action="http://localhost:3000/Musicas" method="post">
+        <input type="text" name="artista" placeholder="Artista" required/>
+        <input type="text" name="musica" placeholder="Música" required/>
+        <input type="text" name="album" placeholder="Álbum" required/>
+        <input type="text" name="duracao" placeholder="Duração" required/>
+        <input class="btn" type="submit" value="Enviar"/>
+      </form>
+    </main>
+
+    <footer>
+      <div>
+        <span>Carlos Rodrigues</span>
+        <a href="https://github.com/CarlosAugustoRodrigues" target="_blank">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+      <div>
+        <span>Vinícius Manzano</span>
+        <a href="https://github.com/vinimanzano" target="_blank">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
