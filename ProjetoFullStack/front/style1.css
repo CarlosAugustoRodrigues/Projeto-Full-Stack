@@ -75,6 +75,9 @@ main a:active {
 main table {
     padding: 10px;
     text-align: center;
+    background: rgb(20, 20, 20);
+    box-shadow: 10px 10px 5px rgb(10, 10, 10);
+    border-radius: 5px;
 }
 main table th {
     color: rgb(50, 200, 170);
