@@ -14,10 +14,11 @@ Projeto Full Stack (MySQL, node.JS, JS, HTML e CSS)
 
 ## Como testar
 - 1 Clone este repositório
-- 2 Abra com VsCode
-- 3 Abra o XAMPP e clique em Start no MySQL
-- 4 Abra o banco de dados via shell ou phpMyadmin e rode o **script.sql** para criar e popular o banco de dados.
-- 5 Abra o terminal (CMD ou BASH)
+- 2 Vá até a pasta ProjetoFullStack
+- 3 Abra com VsCode
+- 4 Abra o XAMPP e clique em Start no MySQL
+- 5 Abra o banco de dados via shell ou phpMyadmin e rode o **script.sql** para criar e popular o banco de dados.
+- 6 Abra o terminal (CMD ou BASH)
     - 5.1 Naveque até a pasta **./back** e instale as dependências
 ```bash
 cd back
