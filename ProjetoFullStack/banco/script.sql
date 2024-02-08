@@ -24,5 +24,3 @@ values
 ("Metallica","Master of Puppets","Master of Puppets", "8:35"),
 ("Avenged Sevenfold","Cosmic","Life Is but a Dream…", "7:32"),
 ("Audioslave","Like a Stone","Audioslave", "4:54");
-
-select * from Musicas;

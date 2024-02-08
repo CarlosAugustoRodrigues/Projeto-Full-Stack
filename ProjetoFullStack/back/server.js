@@ -41,6 +41,42 @@ const create = (req, res) => {
     });
 }
 
+
+//CRUD - Update
+const update = (req, res) => {
+    let id = req.params.id;
+    let artista = req.body.artista;
+    let musica = req.body.musica;
+    let album = req.body.album;
+    let duracao = req.body.duracao;
+    let query = `UPDATE Musicas SET artista = '${artista}', musica = '${musica}', album = '${album}', duracao = '${duracao}' WHERE id = ${id};`;
+    con.query(query, (err, result) => {
+        if (err)
+            res.redirect("http://127.0.0.1:5500/front/erro.html?erro=Erro ao atualizar&err=" + err.code);
+        else {
+            if (result.affectedRows == 0)
+                res.redirect("http://127.0.0.1:5500/front/erro.html?erro=Nada foi alterado");
+            else
+                res.json("Atualizado com sucesso!");
+        }
+    });
+}
+
+//CRUD - Delete
+const del = (req, res) => {
+    let id = Number(req.params.id);
+    con.query(`DELETE FROM Musicas WHERE id=${id}`, (err, result) => {
+        if (err)
+            res.redirect("http://127.0.0.1:5500/front/erro.html?erro=Erro ao excluir&err=" + err.code);
+        else {
+            if (result.affectedRows == 0)
+                res.redirect("http://127.0.0.1:5500/front/erro.html?erro=Nada foi excluído");
+            else
+                res.json("Atualizado com sucesso!");
+        }
+    });
+}
+
 //CRUD - Read
 const read = (req, res) => {
     con.query("SELECT * FROM Musicas ORDER BY id", (err, result) => {
@@ -59,8 +95,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Rotas de Saída - FrontEnd
 app.get("/", teste);
-app.post("/Musicas", create);
+app.post("/Musicas", create); 
 app.get("/Musicas", read);
+app.delete("/Musicas/:id", del);
+app.put("/Musicas/:id", update);
 
 //Teste e porta no console
 app.listen(3000, () => {

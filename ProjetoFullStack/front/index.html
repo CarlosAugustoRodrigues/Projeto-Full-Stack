@@ -28,6 +28,7 @@
                 <th>Música</th>
                 <th>Álbum</th>
                 <th>Duração</th>
+                <th><i class="bi bi-list"></i></th>
             </thead>
             <tbody id="dados">
             </tbody>
@@ -63,9 +64,21 @@
                     <td>${music.musica}</td>
                     <td>${music.album}</td>
                     <td>${music.duracao}</td>
+                    <td>
+                        <button onclick='del(${music.id})'><i class="bi bi-trash del"></i></button>
+                        <button onclick='window.location.href="./update.html?id=${music.id}&artista=${music.artista}&musica=${music.musica}&album=${music.album}&duracao=${music.duracao}"'><i class="bi bi-pencil-square up"></i></button>
+                    </td>
                 </tr>
             `
         });
     })
+
+    function del(id) {
+        fetch(`http://localhost:3000/Musicas/${id}`, {method: 'DELETE'})
+        .then(res => res.json())
+        .then(res => {
+            window.location.reload();
+        })
+    }
 </script>
 </html>

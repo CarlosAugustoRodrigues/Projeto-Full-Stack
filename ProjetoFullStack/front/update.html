@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserir Música</title>
+    <link rel="stylesheet" href="./style2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets/img/logo.png" alt="logotipo" />
+        <span>Spotify da Shopee</span>
+      </div>
+    </header>
+
+    <main>
+      <a href="./index.html">Lista de Músicas</a>
+
+      <form id="update">
+        <input type="text" name="id" id="id" disabled/>
+        <input type="text" name="artista" id="artista" required/>
+        <input type="text" name="musica" id="musica" required/>
+        <input type="text" name="album" id="album" required/>
+        <input type="text" name="duracao" id="duracao" required/>
+        <input class="btn" type="submit" value="Enviar"/>
+      </form>
+    </main>
+
+    <footer>
+      <div>
+        <span>Carlos Rodrigues</span>
+        <a href="https://github.com/CarlosAugustoRodrigues" target="_blank">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+      <div>
+        <span>Vinícius Manzano</span>
+        <a href="https://github.com/vinimanzano" target="_blank">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+
+    document.getElementById('id').value = params.get('id');
+    document.getElementById('artista').value = params.get('artista');
+    document.getElementById('musica').value = params.get('musica');
+    document.getElementById('album').value = params.get('album');
+    document.getElementById('duracao').value = params.get('duracao');
+
+    const up = document.getElementById('update');
+    up.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const id = document.getElementById('id').value;
+      const artista = document.getElementById('artista').value;
+      const musica = document.getElementById('musica').value;
+      const album = document.getElementById('album').value;
+      const duracao = document.getElementById('duracao').value;
+
+      fetch(`http://localhost:3000/Musicas/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({artista, musica, album, duracao})
+      })
+
+      .then(res => res.json())
+      .then(res => {
+        if(res.erro){
+          window.location.href = './erro.html?erro='+res.erro+'&err='+res.err;
+        } else {
+          window.location.href = './index.html';
+        }
+      })
+    })
+  </script>
+</html>

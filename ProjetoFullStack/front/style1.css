@@ -64,7 +64,7 @@ main a {
 
 main a:hover {
     transform: translate(-8px, -8px);
-    box-shadow: 8px 8px 5px rgb(50, 200, 170);
+    box-shadow: 8px 8px 0 rgb(50, 200, 170);
     cursor: pointer;
 }
 main a:active {
@@ -74,34 +74,45 @@ main a:active {
 
 main table {
     padding: 10px;
-    text-align: center;
     background: rgb(20, 20, 20);
     box-shadow: 10px 10px 5px rgb(10, 10, 10);
     border-radius: 5px;
 }
 main table th {
     color: rgb(50, 200, 170);
-    text-shadow: 0 0 5px rgb(50, 230, 200);
     transition: .5s;
     font-size: 1.3rem;
-    border: 1px solid rgb(50, 200, 170);
-    padding: 0 30px;
+    padding: 10px 30px;
+    text-align: center;
 }
-main table th:hover {
-    color: rgb(0, 200, 255);
-    text-shadow: rgb(0, 230, 255);
-    border: 1px solid rgb(0, 200, 255);
-}
+
 main table td {
-    color: rgb(0, 200, 255);
+    color: rgb(255, 255, 255);
     font-size: 1.1rem;
     transition: .5s;
-    border: 1px solid rgb(0, 200, 255);
-    padding: 0 30px;
+    padding: 3px 30px;
+    text-align: center;
 }
-main table td:hover {
-    color: rgb(50, 200, 170);
-    border: 1PX solid rgb(50, 200, 170);
+
+main table td button {
+    background: transparent;
+    border: none;
+    transition: .2s;
+}
+
+main table td button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.del{
+    color: rgb(200, 30, 50);
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+.up {
+    color: rgb(50, 30, 200);
+    font-size: 1.3rem;
 }
 
 
